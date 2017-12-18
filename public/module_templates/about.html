@@ -1,0 +1,18 @@
+<section class="module row" id="about" ng-controller="aboutController">
+  <div class="col-sm-12 col-md-7 info">
+    <p class="lead" ng-bind-html="lead_1"></p>
+    <p class="lead" ng-bind-html="lead_2"></p>
+
+    <button type="button" class="btn btn-default" ng-bind-html="call_to_action_text">
+    </button>
+  </div>
+
+  <div class="col-sm-12 col-md-5 map">
+    <p ng-bind-html="address"></p>
+    <p ng-bind-html="hours"></p>
+
+    <div id="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.917922977613!2d-118.33063848443962!3d34.0972430228041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf375cc495b1%3A0xfb49235321a7f295!2s6370+Sunset+Blvd+%23304%2C+Los+Angeles%2C+CA+90028!5e0!3m2!1sen!2sus!4v1512067418218" width="300" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+{
+  "name": "pelosplace",
+  "version": "1.0.0",
+  "description": "A web app for a salon that handles booking",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Elliott [Mean Matt]",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5",
+    "rsvp": "^4.7.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-less": "^3.3.2",
+    "gulp-minify": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1"
+  }
+}

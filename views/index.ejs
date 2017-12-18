@@ -1,0 +1,8 @@
+<%- include('partials/head'); %>
+<%- include('partials/header'); %>
+
+<% data.modules.forEach(function(module) { %>
+  <<%- module %> ng-cloak></<%- module %>>
+<% }); %>
+
+<%- include('partials/foot'); %>

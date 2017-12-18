@@ -1,0 +1,30 @@
+#appointments {
+  .form-wrapper {
+    border-right: 2px solid #fff;
+
+    .day {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  h4, button {
+    display: inline-block;
+  }
+
+  .dayWrapper {
+    display: block;
+    .day {
+      &.active {
+        background: orange;
+      }
+      
+      h5 {
+        &.active {
+          background: red;
+        }
+      }
+    }
+  }
+}
