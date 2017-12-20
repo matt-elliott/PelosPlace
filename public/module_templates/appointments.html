@@ -1,55 +1,62 @@
 <section class="module row" id="appointments" ng-controller="appointmentController">
-  <div class="col-sm-12 col-md-7 form-wrapper">
-    <h4 class="module-header">Book Online <span class="booked" ng-show="form.booked">Booked!</span></h4>
+  <div class="module-wrapper">
+    <div class="col-sm-12 col-md-6 form-wrapper">
+      <h4 class="module-header">Book Online <span class="booked" ng-show="form.booked">Booked!</span></h4>
 
-    <form id="appointment-form" name="appointmentform">
-      <input type="name" name="firstname" placeholder="First Name" ng-model="form.firstname" required="required" />
-      <input type="name" name="lastname" placeholder="Last Name" ng-model="form.lastname" required="required" />
-      <input type="phone" name="phone" placeholder="Phone Number" ng-model="form.phone" required="required" />
-      <input type="Email" name="email" placeholder="Email Address" ng-model="form.email" required="required" />
+      <form id="appointment-form" name="appointmentform">
+        <input type="name" name="firstname" placeholder="First Name" ng-model="form.firstname" required="required" />
+        <input type="name" name="lastname" placeholder="Last Name" ng-model="form.lastname" required="required" />
+        <input type="phone" name="phone" placeholder="Phone Number" ng-model="form.phone" required="required" />
+        <input type="Email" name="email" placeholder="Email Address" ng-model="form.email" required="required" />
 
-      <select name="appointment-type-list" ng-model="selectTypeParams.selectedAppointment" ng-options="option.name for option in selectTypeParams.availableOptions" required="required">
-        <option value="" disabled="disabled" selected="selected">---Select an Appointment Kind---</option>
-      </select>
+        <div class="select-wrapper">
+          <select name="appointment-type-list" ng-model="selectTypeParams.selectedAppointment" ng-options="option.name for option in selectTypeParams.availableOptions" required="required">
+            <option value="" disabled="disabled" selected="selected">Select an Appointment Kind</option>
+          </select>
+        </div>
 
-      <a class="btn btn-default" ng-click="showCalendar()" type="button">Select Appointment Day</a>
+        <a class="btn btn-default day-select-drop-btn" ng-click="showCalendar()" type="button">Select Appointment Day</a>
 
-      <div class="calendar hidden">
-        <a class="prev btn btn-default" type="button" ng-click="getPrevMonth()">Prev</a>
-        <h4>{{month}}</h4>
-        <a class="next btn btn-default" type="button" ng-click="getNextMonth()">Next</a>
+        <div class="calendar hidden">
+          <header>
+            <a class="prev btn" type="button" ng-click="getPrevMonth()">&#xea44;</a>
+            <h4>{{month}}</h4>
+            <a class="next btn" type="button" ng-click="getNextMonth()">&#xea42;</a>
+            <a class="btn btn-default today" type="button" ng-click="getToday()">Today</a>
+          </header>
 
-        <a class="btn btn-default" type="button" ng-click="getToday()">Today</a>
-
-        <div class="dayWrapper">
-          <div class="day" ng-class=" {'active' : day.daySelected} " ng-repeat="day in daysInMonthList" ng-click="selectDay(day)" required="required">
-            <h5 ng-class="{'active' : today === day.nthOfMonth}">{{day.name}}</h5>
+          <div class="dayWrapper">
+            <div class="day" ng-class=" { 'active' : day.daySelected, 'today' : today === day.nthOfMonth } " ng-repeat="day in daysInMonthList" ng-click="selectDay(day)" required="required">
+              <h5>{{day.name}}</h5>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="availableTimes" ng-cloak>
-        <h5 ng-cloak>Available {{selectTypeParams.selectedAppointment.name}} Appointments</h5>
-        <ul class="list-unstyled">
-          <li ng-repeat="slot in availableTimes"
-              ng-class="{{slot}}">
-                start : {{slot.start}} — end : {{slot.end}}
-                <button
-                  class="book btn btn-default"
-                  ng-click="saveAppointmentTime(slot)">
-                    Book
-                </button>
-            </li>
-        </ul>
-      </div>
+        <div class="availableTimes" ng-cloak>
+          <h5 ng-cloak>Available {{selectTypeParams.selectedAppointment.name}} Appointments</h5>
+          <ul class="list-unstyled">
+            <li ng-repeat="slot in availableTimes"
+                ng-class="{{slot}}"
+                class="clearfix">
+                  <p>start time : {{slot.start}}<br />end time : {{slot.end}}</p>
+                  <button
+                    class="book btn btn-default"
+                    ng-click="saveAppointmentTime(slot)">
+                      Book
+                  </button>
+              </li>
+          </ul>
+        </div>
 
-      <button form="appointment-form" ng-disabled="appointmentform.$invalid" class="btn btn-default" type="submit" name="submit" ng-click="bookAppointment()">Submit</button>
-    </form>
-  </div>
-  <div class="col-sm-12 col-md-5">
-    <h4 class="module-header">Or Call/Text Us</h4>
+        <button form="appointment-form" ng-disabled="appointmentform.$invalid" class="btn btn-default" type="submit" name="submit" ng-click="bookAppointment()">Submit</button>
+      </form>
+    </div>
 
-    <p class="lead"><strong>Guillermo</strong> : (555) 555-2595</p>
-    <p class="lead"><strong>Secondary Contact</strong> : (555) 555-2596</p>
+    <div class="col-sm-12 col-md-6">
+      <h4 class="module-header">Or Call/Text Us</h4>
+
+      <p class="lead"><strong>Guillermo</strong> : (555) 555-2595</p>
+      <p class="lead"><strong>Secondary Contact</strong> : (555) 555-2596</p>
+    </div>
   </div>
 </section>

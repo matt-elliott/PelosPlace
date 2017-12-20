@@ -6,13 +6,71 @@
   }
 
   .info {
-    border-right: 2px solid #fff;
+    border: 0;
+    border-right-width: 2px;
+    border-color: @color-white;
+    border-style: solid;
+
     .lead {
+      font-size: 2em;
       margin-bottom: 30px;
+      font-style: italic;
+
+      em {
+        font-weight: bold;
+      }
+    }
+
+    button {
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: rgba(100,100,100,0.3);
+      border: 2px solid @color-gray;
+      color: @color-white;
+      font-weight: bold;
+      font-size: 1.5em;
+      font-style: italic;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 100%;
+      white-space: pre-wrap;
+    }
+
+    @media @smartphones {
+      border-right-width: 0;
+     
+      .lead {
+        font-size: 1.5em;
+      }
+
+      button {
+        font-size: 1.2em;
+      }
     }
   }
 
   .map {
     padding-top: 30px;
+
+    p {
+      font-size: 1.5em;
+      font-style: italic;
+
+      &.hours {
+        font-weight: bold;
+      }
+    }
+
+    #map {
+      margin-top: 15px;
+
+      iframe {
+        outline: 5px solid @color-white;
+        padding: 5px;
+        width: 100%;
+        // height: auto;
+        display: inline-block;
+      }
+    }
   }
 }

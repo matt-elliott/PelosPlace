@@ -13,6 +13,18 @@ h1,h2,h3,h4,h5,h6 {
 .module {
   .module-basic;
 
+  &#about, &#appointments, &#reviews {
+    background-color: #000000;
+    background-image: url(/images/site-bg.jpg);
+    background-size: 80%;
+    background-repeat: repeat;
+    overflow: hidden;
+
+    @media @smartphones {
+      background-size: 140%;
+    }
+  }
+
   &#appointments {
     display: block;
   }

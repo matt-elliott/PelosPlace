@@ -1,15 +1,18 @@
 <section class="module row" id="services" ng-controller="serviceController">
-  <figure class="col-sm-12 col-md-4">
-    <img src="http://placehold.it/400x500" class="responsive-img">
-  </figure>
+  <div class="module-wrapper clearfix">
+    <figure class="col-sm-12 col-md-4 carousel hidden-xs">
+      <img src="/images/slider-imgs/man1.jpg" class="img-responsive">
+      <img src="/images/slider-imgs/woman.jpg" class="img-responsive">
+      <img src="/images/slider-imgs/youngman.jpg" class="img-responsive">
+    </figure>
 
-  <div class="col-sm-12 col-md-8">
-    <h4 class="module-header">Services</h4>
+    <div class="col-sm-12 col-md-8 service-list">
+      <h4 class="module-header">Services</h4>
 
-    <dl class="col-sm-12" ng-repeat="service in services">
-      <dt>{{service.name}}</dt>
-      <dd>${{service.price}}</dd>
-    </dl>
-
+      <dl class="col-sm-12" ng-repeat="service in services">
+        <dt>{{service.name}}</dt>
+        <dd>${{service.price}}</dd>
+      </dl>
+    </div>
   </div>
 </section>

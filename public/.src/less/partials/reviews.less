@@ -3,8 +3,15 @@
   #yelp {
     border-right: 2px solid #fff;
 
+    @media @smartphones {
+      border-right: none;
+    }
+
     blockquote {
       border: none;
+      background-color: @color-gray;
+      border: 1px solid @color-light-gray;
+      border-radius: 5px;
     }
   }
 

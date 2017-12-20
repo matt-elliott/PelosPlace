@@ -2,29 +2,170 @@
   .form-wrapper {
     border-right: 2px solid #fff;
 
-    .day {
+    @media @smartphones {
+      border-right: none;
+    }
+
+    input, select, .day-select-drop-btn {
+      padding: 5px;
+      color: @color-black;
+      vertical-align: middle;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 40%;
+      margin: 10px 15px 10px 0;
+    }
+
+    .day-select-drop-btn {
+      position: relative;
+      vertical-align: top;
+      margin: 10px 15px 10px 0;
+      padding: 7px 40px 7px 7px;
+
+      &::after {
+        content: '\e8fd';
+        position: absolute;
+        font-family: icomoon;
+        font-size: 25px; 
+        top: 0;
+        right: 5px;
+      }
+    }
+
+    .select-wrapper {
+      position: relative;
       display: inline-block;
-      width: 50px;
-      height: 50px;
+      background-color: @color-white;
+      padding: 5px 29px;
+      margin: 10px 15px 10px 0;
+      border: 2px solid @color-white;
+      overflow: hidden;
+
+      select {
+        background: transparent;
+        border: none;
+        color: @color-black;
+        width: 150%;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 11px;
+        right: 5px;
+        border-top: 10px solid @color-black;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
+    }
+
+    .calendar {
+      position: relative;
+      background-color: @color-white;
+      color: @color-black;
+
+      header {
+        .btn {
+          position: relative;
+          color: @color-black;
+
+          &.next, &.prev {
+            position: absolute;
+            top: 0px;
+            font-family: icomoon;
+            font-size: 25px;
+            padding: 0;
+            overflow: hidden;
+          }
+
+          &.next {
+            right: 5px;
+          }
+
+          &.prev {
+            left: 5px;
+          }
+        }
+
+        h4 {
+          width: 100%;
+          text-align: center;
+
+          @media @smartphones {
+            font-size: 1.8em;
+            margin-top: 2px;
+          }
+        }
+
+        .today {
+          display: block;
+          margin: 0 auto;
+          max-width: 25%;
+          border: 2px solid @color-light-gray;
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+      }
+
+      .dayWrapper {
+        display: block;
+
+        .day {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          border-collapse: collapse;
+          border: 1px solid @color-light-gray;
+          text-align: center;
+          padding: 6px 0;
+
+          &.active {
+            background: @color-highlight;
+          }
+          
+          &.today {
+            background: @color-light-gray;
+          }
+        }
+      }
+    }
+
+    .availableTimes {
+      h5 {
+        font-size: 1.2em;
+      }
+
+      ul {
+        li {
+          background-color: @color-white;
+          border: 1px solid @color-light-gray;
+          color: @color-black;
+          border-radius: 5px;
+          margin: 15px 0;
+          padding: 10px;
+
+          p {
+            min-width: 73%;
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+
+          p, button {
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          button {
+            background-color: lighten(@color-black, 80%);
+          }
+        }
+      }
     }
   }
 
   h4, button {
     display: inline-block;
-  }
-
-  .dayWrapper {
-    display: block;
-    .day {
-      &.active {
-        background: orange;
-      }
-      
-      h5 {
-        &.active {
-          background: red;
-        }
-      }
-    }
   }
 }

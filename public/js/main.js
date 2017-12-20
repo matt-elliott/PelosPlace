@@ -129,7 +129,7 @@ app.controller('appointmentController', ['$scope', '$http', '$location', functio
     $('.calendar .day').removeClass('active');
     $scope.form.date = day.date;
     $scope.form.duration = $scope.selectTypeParams.selectedAppointment.duration;
-
+    $('.calendar').addClass('hidden');
 
     day.daySelected = true;
 
@@ -243,7 +243,35 @@ app.controller('serviceController', ['$scope', '$http', function($scope, $http) 
     url: '/api/service-data/',
   }).then( function(res) {
     $scope.services = res.data;
-  })
+  });
+
+  $scope.Carousel = {
+    init: function() {
+      this.images = $('.carousel img');
+      this.imageCount = this.images.length;
+      this.i = 0;
+
+      this.run();
+    },
+    run: function() {
+      console.log(this);
+      $scope.timer = setInterval(this.toggleClass, 3000);
+    },
+    toggleClass: function() {
+      console.log($scope.Carousel.i);
+      $( '.carousel .active' ).removeClass( 'active' );
+      $( $scope.Carousel.images[ $scope.Carousel.i ] ).addClass( 'active' );
+
+
+      if( $scope.Carousel.i === $scope.Carousel.imageCount - 1 ) {
+        $scope.Carousel.i = 0;
+        console.log('looping')
+      } else {
+        $scope.Carousel.i++;
+      }
+    }
+  };
+  $scope.Carousel.init();
 }]);
 
 app.controller('reviewController', ['$scope', '$http', function( $scope, $http) {
@@ -267,13 +295,14 @@ app.controller('reviewController', ['$scope', '$http', function( $scope, $http) 
     });
   }
 
-  getYelpData();
-  getInstagramData();
+  // getYelpData();
+  // getInstagramData();
 }]);
 
 app.directive('about', function() {
   return {
     restrict: 'E',
+    replace: true,
     templateUrl: './module_templates/about.html'
   }
 });
@@ -281,6 +310,7 @@ app.directive('about', function() {
 app.directive('services', function() {
   return {
     restrict: 'E',
+    replace: true,
     templateUrl: './module_templates/services.html'
   }
 });
@@ -288,6 +318,7 @@ app.directive('services', function() {
 app.directive('appointments', function() {
   return {
     restrict: 'E',
+    replace: true,
     templateUrl: './module_templates/appointments.html'
   }
 });
@@ -295,6 +326,7 @@ app.directive('appointments', function() {
 app.directive('reviews', function() {
   return {
     restrict: 'E',
+    replace: true,
     templateUrl: './module_templates/reviews.html'
   }
 });

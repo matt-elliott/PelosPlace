@@ -30,13 +30,38 @@
   transition: all 350ms ease-out;
 }
 
+.max-width-and-center {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
 .module-basic {
   background-color: @color-black;
   color: #fff;
   border-bottom: 2px ridge #fff;
   padding: 80px 0;
+  overflow: hidden;
 
-  > div {
-    padding: 60px;
+  .module-wrapper {
+    .max-width-and-center;
+
+    > div {
+      padding: 60px;
+
+      h4 {
+        font-size: 4em;
+        line-height: 1.2em;
+        margin-top: -.2em;
+        margin-bottom: 0.5em;
+      }
+
+      @media @smartphones {
+        padding: 30px;
+
+        h4 {
+          font-size: 2em;
+        }
+      }
+    }
   }
 }
