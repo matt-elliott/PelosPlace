@@ -21,14 +21,14 @@
         <ul class="nav navbar-nav" id="social-links">
           <% for(var key in data.socialNetworkLinks) { %>
             <% var cleanName = key.split('_')[2]; %>
-            <li><a href="<%- data.socialNetworkLinks[key] %>" class="icon-<%- cleanName %>" title="<%- cleanName %>"></a></li>
+            <li><a href="<%- data.socialNetworkLinks[key] %>" class="icon-<%- cleanName %>" title="<%- cleanName %>" target="_blank"></a></li>
           <% }; %>
         </ul>
         <ul class="nav navbar-nav" id="page-links">
 
           <% data.modules.forEach(function(module) { %>
             <li>
-              <a ng-href="#<%- module %>"><%- module %></a>
+              <a ng-href="#<%- module %>" target="_self"><%- module %></a>
             </li>
           <% }) %>
           
